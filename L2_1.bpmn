@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_L2_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.13.1">
+  <process id="Process_L2_1" name="L2-1: Регистрация и классификация заявки" isExecutable="false">
+    <laneSet id="LaneSet_L2_1">
+      <lane id="Lane_Op" name="Оператор">
+        <flowNodeRef>Ev_Start</flowNodeRef>
+        <flowNodeRef>Task_GetForm</flowNodeRef>
+        <flowNodeRef>Task_CheckDup</flowNodeRef>
+        <flowNodeRef>GW_Dup</flowNodeRef>
+        <flowNodeRef>Task_MergeDup</flowNodeRef>
+        <flowNodeRef>Ev_EndDup</flowNodeRef>
+        <flowNodeRef>Task_CreateTicket</flowNodeRef>
+        <flowNodeRef>Task_AutoClassify</flowNodeRef>
+        <flowNodeRef>GW_Tagged</flowNodeRef>
+        <flowNodeRef>Task_ManualClassify</flowNodeRef>
+        <flowNodeRef>GW_MergeCls</flowNodeRef>
+        <flowNodeRef>Task_SetPriority</flowNodeRef>
+        <flowNodeRef>Ev_End</flowNodeRef>
+        <flowNodeRef>Task_AssignRoute</flowNodeRef>
+      </lane>
+      <lane id="Lane_Sys" name="Платформа для упраления проектами">
+        <flowNodeRef>Task_AutoNotify</flowNodeRef>
+        <flowNodeRef>Task_LogEvent</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="Ev_Start" name="Начать регистрацию" />
+    <userTask id="Task_GetForm" name="Получить данные из формы" />
+    <serviceTask id="Task_CheckDup" name="Проверить дубликат" />
+    <exclusiveGateway id="GW_Dup" name="Дубликат?" />
+    <userTask id="Task_MergeDup" name="Объединить с существующей заявкой" />
+    <endEvent id="Ev_EndDup" name="Дубликат объединён" />
+    <userTask id="Task_CreateTicket" name="Создать тикет" />
+    <sendTask id="Task_AutoNotify" name="Отправить авто-уведомление клиенту" />
+    <serviceTask id="Task_AutoClassify" name="Классифицировать по ML-тегам" />
+    <exclusiveGateway id="GW_Tagged" name="Тег определён?" />
+    <userTask id="Task_ManualClassify" name="Классифицировать вручную" />
+    <exclusiveGateway id="GW_MergeCls" name="" />
+    <userTask id="Task_SetPriority" name="Установить приоритет заявки" />
+    <userTask id="Task_AssignRoute" name="Назначить маршрут обработки" />
+    <serviceTask id="Task_LogEvent" name="Записать в журнал событий" />
+    <endEvent id="Ev_End" name="Заявка классифицирована" />
+    <sequenceFlow id="SF1" sourceRef="Ev_Start" targetRef="Task_GetForm" />
+    <sequenceFlow id="SF2" sourceRef="Task_GetForm" targetRef="Task_CheckDup" />
+    <sequenceFlow id="SF3" sourceRef="Task_CheckDup" targetRef="GW_Dup" />
+    <sequenceFlow id="SF4" name="Да" sourceRef="GW_Dup" targetRef="Task_MergeDup" />
+    <sequenceFlow id="SF5" name="Нет" sourceRef="GW_Dup" targetRef="Task_CreateTicket" />
+    <sequenceFlow id="SF6" sourceRef="Task_MergeDup" targetRef="Ev_EndDup" />
+    <sequenceFlow id="SF7" sourceRef="Task_CreateTicket" targetRef="Task_AutoNotify" />
+    <sequenceFlow id="SF8" sourceRef="Task_AutoNotify" targetRef="Task_AutoClassify" />
+    <sequenceFlow id="SF9" sourceRef="Task_AutoClassify" targetRef="GW_Tagged" />
+    <sequenceFlow id="SF10" name="Да" sourceRef="GW_Tagged" targetRef="GW_MergeCls" />
+    <sequenceFlow id="SF11" name="Нет" sourceRef="GW_Tagged" targetRef="Task_ManualClassify" />
+    <sequenceFlow id="SF12" sourceRef="Task_ManualClassify" targetRef="GW_MergeCls" />
+    <sequenceFlow id="SF13" sourceRef="GW_MergeCls" targetRef="Task_SetPriority" />
+    <sequenceFlow id="SF14" sourceRef="Task_SetPriority" targetRef="Task_AssignRoute" />
+    <sequenceFlow id="SF15" sourceRef="Task_AssignRoute" targetRef="Task_LogEvent" />
+    <sequenceFlow id="SF16" sourceRef="Task_LogEvent" targetRef="Ev_End" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_L2_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_L2_1" bpmnElement="Process_L2_1">
+      <bpmndi:BPMNShape id="Shape_Lane_Sys" bpmnElement="Lane_Sys" isHorizontal="true">
+        <dc:Bounds x="150" y="360" width="1550" height="140" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Op" bpmnElement="Lane_Op" isHorizontal="true">
+        <dc:Bounds x="150" y="80" width="1550" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Ev_Start" bpmnElement="Ev_Start">
+        <dc:Bounds x="192" y="202" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="170" y="243" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GetForm" bpmnElement="Task_GetForm">
+        <dc:Bounds x="280" y="180" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CheckDup" bpmnElement="Task_CheckDup">
+        <dc:Bounds x="460" y="180" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_Dup" bpmnElement="GW_Dup" isMarkerVisible="true">
+        <dc:Bounds x="650" y="195" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="638" y="250" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_MergeDup" bpmnElement="Task_MergeDup">
+        <dc:Bounds x="760" y="100" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Ev_EndDup" bpmnElement="Ev_EndDup">
+        <dc:Bounds x="950" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="928" y="163" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CreateTicket" bpmnElement="Task_CreateTicket">
+        <dc:Bounds x="760" y="180" width="130" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AutoNotify" bpmnElement="Task_AutoNotify">
+        <dc:Bounds x="760" y="390" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AutoClassify" bpmnElement="Task_AutoClassify">
+        <dc:Bounds x="960" y="180" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_Tagged" bpmnElement="GW_Tagged" isMarkerVisible="true">
+        <dc:Bounds x="1150" y="195" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1135" y="250" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ManualClassify" bpmnElement="Task_ManualClassify">
+        <dc:Bounds x="1260" y="100" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_MergeCls" bpmnElement="GW_MergeCls" isMarkerVisible="true">
+        <dc:Bounds x="1450" y="195" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SetPriority" bpmnElement="Task_SetPriority">
+        <dc:Bounds x="1260" y="260" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_LogEvent" bpmnElement="Task_LogEvent">
+        <dc:Bounds x="1450" y="390" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Ev_End" bpmnElement="Ev_End">
+        <dc:Bounds x="1640" y="412" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1616" y="453" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AssignRoute" bpmnElement="Task_AssignRoute">
+        <dc:Bounds x="1485" y="260" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="E1" bpmnElement="SF1">
+        <di:waypoint x="228" y="220" />
+        <di:waypoint x="280" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E2" bpmnElement="SF2">
+        <di:waypoint x="410" y="220" />
+        <di:waypoint x="460" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E3" bpmnElement="SF3">
+        <di:waypoint x="590" y="220" />
+        <di:waypoint x="650" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E4" bpmnElement="SF4">
+        <di:waypoint x="675" y="195" />
+        <di:waypoint x="675" y="140" />
+        <di:waypoint x="760" y="140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="690" y="155" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E5" bpmnElement="SF5">
+        <di:waypoint x="700" y="220" />
+        <di:waypoint x="760" y="220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="720" y="202" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E6" bpmnElement="SF6">
+        <di:waypoint x="890" y="140" />
+        <di:waypoint x="950" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E7" bpmnElement="SF7">
+        <di:waypoint x="825" y="260" />
+        <di:waypoint x="825" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E8" bpmnElement="SF8">
+        <di:waypoint x="890" y="430" />
+        <di:waypoint x="1025" y="430" />
+        <di:waypoint x="1025" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E9" bpmnElement="SF9">
+        <di:waypoint x="1090" y="220" />
+        <di:waypoint x="1150" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E10" bpmnElement="SF10">
+        <di:waypoint x="1200" y="220" />
+        <di:waypoint x="1450" y="220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1315" y="202" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E11" bpmnElement="SF11">
+        <di:waypoint x="1175" y="195" />
+        <di:waypoint x="1175" y="140" />
+        <di:waypoint x="1260" y="140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1190" y="155" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E12" bpmnElement="SF12">
+        <di:waypoint x="1390" y="140" />
+        <di:waypoint x="1475" y="140" />
+        <di:waypoint x="1475" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E13" bpmnElement="SF13">
+        <di:waypoint x="1475" y="245" />
+        <di:waypoint x="1475" y="270" />
+        <di:waypoint x="1390" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E14" bpmnElement="SF14">
+        <di:waypoint x="1390" y="300" />
+        <di:waypoint x="1485" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E15" bpmnElement="SF15">
+        <di:waypoint x="1550" y="340" />
+        <di:waypoint x="1550" y="365" />
+        <di:waypoint x="1515" y="365" />
+        <di:waypoint x="1515" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E16" bpmnElement="SF16">
+        <di:waypoint x="1580" y="430" />
+        <di:waypoint x="1640" y="430" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_L2_2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.13.1">
+  <collaboration id="Collab_L2_2">
+    <participant id="Pool_Co" name="Компания (Платформа для управления проектами)" processRef="Process_L2_2" />
+    <participant id="Pool_Client" name="Клиент" processRef="Process_Client_L2" />
+    <messageFlow id="MF_Notify" sourceRef="Task_SendDecision" targetRef="Ev_ClientReceive" />
+    <messageFlow id="MF_Feedback" sourceRef="Ev_ClientFeedback" targetRef="Ev_FeedbackCatch" />
+  </collaboration>
+  <process id="Process_Client_L2" isExecutable="false">
+    <startEvent id="Ev_ClStart" />
+    <intermediateCatchEvent id="Ev_ClientReceive" name="Получить решение">
+      <messageEventDefinition />
+    </intermediateCatchEvent>
+    <intermediateThrowEvent id="Ev_ClientFeedback" name="Отправить отзыв">
+      <messageEventDefinition />
+    </intermediateThrowEvent>
+    <endEvent id="Ev_ClEnd" />
+    <sequenceFlow id="SF_Cl1" sourceRef="Ev_ClStart" targetRef="Ev_ClientReceive" />
+    <sequenceFlow id="SF_Cl2" sourceRef="Ev_ClientReceive" targetRef="Ev_ClientFeedback" />
+    <sequenceFlow id="SF_Cl3" sourceRef="Ev_ClientFeedback" targetRef="Ev_ClEnd" />
+  </process>
+  <process id="Process_L2_2" name="L2-2: Согласование решения и уведомление клиента" isExecutable="false">
+    <laneSet id="LaneSet_L2_2">
+      <lane id="Lane_Op" name="Оператор">
+        <flowNodeRef>Ev_Start</flowNodeRef>
+        <flowNodeRef>Task_PrepareRes</flowNodeRef>
+        <flowNodeRef>Task_SelfCheck</flowNodeRef>
+        <flowNodeRef>GW_Ready</flowNodeRef>
+        <flowNodeRef>Task_FixIssues</flowNodeRef>
+        <flowNodeRef>Task_Submit</flowNodeRef>
+        <flowNodeRef>Task_SendDecision</flowNodeRef>
+      </lane>
+      <lane id="Lane_Mgr" name="Руководитель / Согласующий">
+        <flowNodeRef>Task_Review</flowNodeRef>
+        <flowNodeRef>GW_Decision</flowNodeRef>
+        <flowNodeRef>Task_Comment</flowNodeRef>
+        <flowNodeRef>Task_Sign</flowNodeRef>
+      </lane>
+      <lane id="Lane_Sys" name="Платформа">
+        <flowNodeRef>Task_NotifyMgr</flowNodeRef>
+        <flowNodeRef>Ev_Timer</flowNodeRef>
+        <flowNodeRef>Task_EscalateTimer</flowNodeRef>
+        <flowNodeRef>Ev_FeedbackCatch</flowNodeRef>
+        <flowNodeRef>Ev_End</flowNodeRef>
+        <flowNodeRef>Task_CloseTicket</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="Ev_Start" name="Решение сформировано" />
+    <userTask id="Task_PrepareRes" name="Подготовить финальное решение" />
+    <userTask id="Task_SelfCheck" name="Провести самопроверку" />
+    <exclusiveGateway id="GW_Ready" name="Готово к согласованию?" />
+    <userTask id="Task_FixIssues" name="Устранить замечания" />
+    <userTask id="Task_Submit" name="Передать на согласование" />
+    <sendTask id="Task_SendDecision" name="Уведомить клиента" />
+    <userTask id="Task_Review" name="Изучить решение" />
+    <exclusiveGateway id="GW_Decision" name="Согласовано?" />
+    <userTask id="Task_Comment" name="Оставить комментарии" />
+    <userTask id="Task_Sign" name="Подписать и согласовать" />
+    <sendTask id="Task_NotifyMgr" name="Уведомить согласующего" />
+    <intermediateCatchEvent id="Ev_Timer" name="Ожидание 1 день">
+      <timerEventDefinition>
+        <timeDuration xsi:type="tFormalExpression">P1D</timeDuration>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <userTask id="Task_EscalateTimer" name="Эскалировать задержку согласования" />
+    <intermediateCatchEvent id="Ev_FeedbackCatch" name="Получить отзыв клиента">
+      <messageEventDefinition />
+    </intermediateCatchEvent>
+    <sequenceFlow id="SF1" sourceRef="Ev_Start" targetRef="Task_PrepareRes" />
+    <sequenceFlow id="SF2" sourceRef="Task_PrepareRes" targetRef="Task_SelfCheck" />
+    <sequenceFlow id="SF3" sourceRef="Task_SelfCheck" targetRef="GW_Ready" />
+    <sequenceFlow id="SF4" name="Нет" sourceRef="GW_Ready" targetRef="Task_FixIssues" />
+    <sequenceFlow id="SF5" name="Да" sourceRef="GW_Ready" targetRef="Task_Submit" />
+    <sequenceFlow id="SF6" sourceRef="Task_FixIssues" targetRef="Task_SelfCheck" />
+    <sequenceFlow id="SF7" sourceRef="Task_Submit" targetRef="Task_NotifyMgr" />
+    <sequenceFlow id="SF8" sourceRef="Task_NotifyMgr" targetRef="Task_Review" />
+    <sequenceFlow id="SF9" sourceRef="Task_NotifyMgr" targetRef="Ev_Timer" />
+    <sequenceFlow id="SF10" sourceRef="Ev_Timer" targetRef="Task_EscalateTimer" />
+    <sequenceFlow id="SF11" sourceRef="Task_EscalateTimer" targetRef="Task_Review" />
+    <sequenceFlow id="SF12" sourceRef="Task_Review" targetRef="GW_Decision" />
+    <sequenceFlow id="SF13" name="Да" sourceRef="GW_Decision" targetRef="Task_Sign" />
+    <sequenceFlow id="SF14" name="Нет" sourceRef="GW_Decision" targetRef="Task_Comment" />
+    <sequenceFlow id="SF15" sourceRef="Task_Comment" targetRef="Task_FixIssues" />
+    <sequenceFlow id="SF16" sourceRef="Task_Sign" targetRef="Task_SendDecision" />
+    <sequenceFlow id="SF17" sourceRef="Task_SendDecision" targetRef="Ev_FeedbackCatch" />
+    <sequenceFlow id="SF18" sourceRef="Ev_FeedbackCatch" targetRef="Task_CloseTicket" />
+    <sequenceFlow id="SF19" sourceRef="Task_CloseTicket" targetRef="Ev_End" />
+    <endEvent id="Ev_End" name="Заявка закрыта" />
+    <serviceTask id="Task_CloseTicket" name="Зафиксировать отзыв и закрыть тикет" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_L2_2">
+    <bpmndi:BPMNPlane id="BPMNPlane_L2_2" bpmnElement="Collab_L2_2">
+      <bpmndi:BPMNShape id="S_Pool_Co" bpmnElement="Pool_Co" isHorizontal="true">
+        <dc:Bounds x="130" y="60" width="1730" height="620" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Sys" bpmnElement="Lane_Sys" isHorizontal="true">
+        <dc:Bounds x="160" y="460" width="1700" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Mgr" bpmnElement="Lane_Mgr" isHorizontal="true">
+        <dc:Bounds x="160" y="260" width="1700" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Op" bpmnElement="Lane_Op" isHorizontal="true">
+        <dc:Bounds x="160" y="60" width="1700" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Start" bpmnElement="Ev_Start">
+        <dc:Bounds x="202" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="180" y="183" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Prepare" bpmnElement="Task_PrepareRes">
+        <dc:Bounds x="290" y="120" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_SelfCheck" bpmnElement="Task_SelfCheck">
+        <dc:Bounds x="490" y="120" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_GW_Ready" bpmnElement="GW_Ready" isMarkerVisible="true">
+        <dc:Bounds x="695" y="135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="680" y="97.5" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Fix" bpmnElement="Task_FixIssues">
+        <dc:Bounds x="490" y="210" width="140" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Submit" bpmnElement="Task_Submit">
+        <dc:Bounds x="810" y="120" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Send" bpmnElement="Task_SendDecision">
+        <dc:Bounds x="1430" y="120" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Review" bpmnElement="Task_Review">
+        <dc:Bounds x="1010" y="320" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_GW_Dec" bpmnElement="GW_Decision" isMarkerVisible="true">
+        <dc:Bounds x="1215" y="335" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1203" y="311" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Comment" bpmnElement="Task_Comment">
+        <dc:Bounds x="1010" y="420" width="140" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Sign" bpmnElement="Task_Sign">
+        <dc:Bounds x="1330" y="320" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_NotifyMgr" bpmnElement="Task_NotifyMgr">
+        <dc:Bounds x="810" y="520" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Timer" bpmnElement="Ev_Timer">
+        <dc:Bounds x="1012" y="542" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="988" y="583" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Escalate" bpmnElement="Task_EscalateTimer">
+        <dc:Bounds x="1110" y="520" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_FBCatch" bpmnElement="Ev_FeedbackCatch">
+        <dc:Bounds x="1482" y="542" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1390" y="546" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End" bpmnElement="Ev_End">
+        <dc:Bounds x="1802" y="542" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1780" y="583" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Close" bpmnElement="Task_CloseTicket">
+        <dc:Bounds x="1590" y="520" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="E1" bpmnElement="SF1">
+        <di:waypoint x="238" y="160" />
+        <di:waypoint x="290" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E2" bpmnElement="SF2">
+        <di:waypoint x="430" y="160" />
+        <di:waypoint x="490" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E3" bpmnElement="SF3">
+        <di:waypoint x="630" y="160" />
+        <di:waypoint x="695" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E4" bpmnElement="SF4">
+        <di:waypoint x="720" y="185" />
+        <di:waypoint x="720" y="230" />
+        <di:waypoint x="630" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="729" y="200" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E5" bpmnElement="SF5">
+        <di:waypoint x="745" y="160" />
+        <di:waypoint x="810" y="160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="764" y="142" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E6" bpmnElement="SF6">
+        <di:waypoint x="490" y="240" />
+        <di:waypoint x="450" y="240" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="490" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E7" bpmnElement="SF7">
+        <di:waypoint x="880" y="200" />
+        <di:waypoint x="880" y="520" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E8" bpmnElement="SF8">
+        <di:waypoint x="880" y="520" />
+        <di:waypoint x="880" y="360" />
+        <di:waypoint x="1010" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E9" bpmnElement="SF9">
+        <di:waypoint x="950" y="560" />
+        <di:waypoint x="1012" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E10" bpmnElement="SF10">
+        <di:waypoint x="1048" y="560" />
+        <di:waypoint x="1110" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E11" bpmnElement="SF11">
+        <di:waypoint x="1180" y="520" />
+        <di:waypoint x="1180" y="370" />
+        <di:waypoint x="1150" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E12" bpmnElement="SF12">
+        <di:waypoint x="1150" y="360" />
+        <di:waypoint x="1215" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E13" bpmnElement="SF13">
+        <di:waypoint x="1265" y="360" />
+        <di:waypoint x="1330" y="360" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1283" y="342" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E14" bpmnElement="SF14">
+        <di:waypoint x="1240" y="385" />
+        <di:waypoint x="1240" y="450" />
+        <di:waypoint x="1150" y="450" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1248" y="408" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E15" bpmnElement="SF15">
+        <di:waypoint x="1010" y="450" />
+        <di:waypoint x="650" y="450" />
+        <di:waypoint x="650" y="240" />
+        <di:waypoint x="630" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E16" bpmnElement="SF16">
+        <di:waypoint x="1470" y="360" />
+        <di:waypoint x="1500" y="360" />
+        <di:waypoint x="1500" y="160" />
+        <di:waypoint x="1430" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E17" bpmnElement="SF17">
+        <di:waypoint x="1500" y="200" />
+        <di:waypoint x="1500" y="542" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E18" bpmnElement="SF18">
+        <di:waypoint x="1518" y="560" />
+        <di:waypoint x="1590" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E19" bpmnElement="SF19">
+        <di:waypoint x="1750" y="560" />
+        <di:waypoint x="1802" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="S_Pool_Client" bpmnElement="Pool_Client" isHorizontal="true">
+        <dc:Bounds x="130" y="720" width="1700" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_ClStart" bpmnElement="Ev_ClStart">
+        <dc:Bounds x="202" y="762" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_ClReceive" bpmnElement="Ev_ClientReceive">
+        <dc:Bounds x="1082" y="762" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1058" y="803" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_ClFeedback" bpmnElement="Ev_ClientFeedback">
+        <dc:Bounds x="1482" y="762" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1458" y="803" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_ClEnd" bpmnElement="Ev_ClEnd">
+        <dc:Bounds x="1692" y="762" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="ECl1" bpmnElement="SF_Cl1">
+        <di:waypoint x="238" y="780" />
+        <di:waypoint x="1082" y="780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ECl2" bpmnElement="SF_Cl2">
+        <di:waypoint x="1118" y="780" />
+        <di:waypoint x="1482" y="780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ECl3" bpmnElement="SF_Cl3">
+        <di:waypoint x="1518" y="780" />
+        <di:waypoint x="1692" y="780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="EMF1" bpmnElement="MF_Notify">
+        <di:waypoint x="1480" y="200" />
+        <di:waypoint x="1480" y="700" />
+        <di:waypoint x="1100" y="700" />
+        <di:waypoint x="1100" y="762" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="EMF2" bpmnElement="MF_Feedback">
+        <di:waypoint x="1500" y="762" />
+        <di:waypoint x="1500" y="578" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
