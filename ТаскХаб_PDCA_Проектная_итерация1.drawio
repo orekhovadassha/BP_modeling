@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="PDCA проектная ит.1" id="PDCA_proj1">
+    <mxGraphModel dx="1290" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=16;fontStyle=1;" value="Цикл PDCA проектной команды — Итерация 1" vertex="1">
+          <mxGeometry height="25" width="800" x="184" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=12;fontStyle=2;" value="Запуск MVP функции «Умный подбор исполнителя» (rule-based алгоритм)" vertex="1">
+          <mxGeometry height="20" width="800" x="184" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="360" width="530" x="30" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#1A5276;" value="Plan" vertex="1">
+          <mxGeometry height="35" width="530" x="30" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_team" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Продуктовая команда" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_team2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="Продуктовый менеджер (владелец цели), системный аналитик, UX/UI дизайнер, разработчики, QA,&amp;nbsp;&lt;div&gt;продуктовый аналитик (метрики/отчёт)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="35" width="510" x="40" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_okr_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="OKR:" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_okr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="повысить конверсию публикации задания в выбор исполнителя за счёт запуска новой&amp;nbsp;&lt;div&gt;функции «Умный подбор»&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="510" x="40" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_smart_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="SMART-цели периода (= 2 недели — 1 спринт):" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="213" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="1. увеличить конверсию «задание → выбор исполнителя» на X%;" vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="231" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="2. обеспечить долю использования рекомендаций (usage rate) ≥ Y% среди заказчиков;" vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="3. удержать CSAT по удобству подбора не ниже Z." vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_kpi_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="KPI итерации 1:" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_kpi" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="конверсия «задание → выбор исполнителя»; usage rate рекомендаций; медианное time-to-hire; CSAT подбора." vertex="1">
+          <mxGeometry height="30" width="510" x="40" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_way_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Способ выполнения:" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_way" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="Релиз MVP функции (rule-based алгоритм) + настройка аналитики (события impression, click, hire)&amp;nbsp;&lt;div&gt;+ дашборд «до/после» + регресс-тест.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="40" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="do_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#1E8449;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="360" width="530" x="575" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="do_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#1E8449;" value="Do" vertex="1">
+          <mxGeometry height="35" width="530" x="575" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="do_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Системный аналитик&lt;/b&gt; описывает требования и критерии приёмки MVP: параметры подбора (категория,&amp;nbsp;&lt;div&gt;бюджет, рейтинг, история), правила ранжирования и ограничения;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="510" x="585" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="do_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;UX/UI дизайнер&lt;/b&gt; проектирует блок рекомендаций на странице задания и тексты;" vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="do_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Разработчики&lt;/b&gt; реализуют rule-based алгоритм подбора и интеграцию с БД профилей исполнителей;" vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="203" as="geometry" />
+        </mxCell>
+        <mxCell id="do_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;QA&lt;/b&gt; выполняет функциональное тестирование и регресс ключевых сценариев;" vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="243" as="geometry" />
+        </mxCell>
+        <mxCell id="do_5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Продуктовый аналитик&lt;/b&gt; настраивает события (impression, click, hire) и дашборд для контроля&amp;nbsp;&lt;div&gt;использования функции, конверсии и пути пользователя.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="510" x="585" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="act_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="300" width="530" x="30" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="act_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#B7950B;" value="Act" vertex="1">
+          <mxGeometry height="35" width="530" x="30" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="act_sys" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Систематически:&lt;/b&gt; доработка алгоритма подбора (добавление весов параметров),&amp;nbsp;&lt;div&gt;уточнение UI блока рекомендаций, усиление тестового покрытия;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="510" x="40" y="483" as="geometry" />
+        </mxCell>
+        <mxCell id="act_adhoc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Ad hoc:&lt;/b&gt; если конверсия падает или растут жалобы — срочный фикс алгоритма / упрощение сценария /&lt;div&gt;&amp;nbsp;временное отключение блока рекомендаций до исправления;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="510" x="40" y="538" as="geometry" />
+        </mxCell>
+        <mxCell id="act_result" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Результат:&lt;/b&gt; повторное сравнение KPI до и после — решение о переходе к итерации 2 (внедрение ML-модели)." vertex="1">
+          <mxGeometry height="40" width="510" x="40" y="593" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5EEF8;strokeColor=#7D3C98;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="300" width="530" x="575" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#6C3483;" value="Check" vertex="1">
+          <mxGeometry height="35" width="530" x="575" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Продуктовый аналитик&lt;/b&gt; сравнивает KPI «до/после» релиза: конверсию, usage rate, time-to-hire, CSAT подбора;" vertex="1">
+          <mxGeometry height="45" width="510" x="585" y="483" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;QA и команда&lt;/b&gt; фиксируют дефекты и узкие места UX: на каких шагах заказчики игнорируют рекомендации;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="533" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Собирается обратная связь&lt;/b&gt; от заказчиков: понятны ли рекомендации, доверяют ли им." vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_pd" edge="1" parent="1" source="plan_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="do_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_dc" edge="1" parent="1" source="do_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="chk_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_ca" edge="1" parent="1" source="chk_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="act_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_ap" edge="1" parent="1" source="act_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="plan_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
