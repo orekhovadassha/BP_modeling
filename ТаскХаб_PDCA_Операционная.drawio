@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="PDCA операционная" id="PDCA_ops">
+    <mxGraphModel dx="1548" dy="918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=16;fontStyle=1;" value="Цикл PDCA операционной команды" vertex="1">
+          <mxGeometry height="30" width="800" x="184" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="340" width="530" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#1A5276;" value="Plan" vertex="1">
+          <mxGeometry height="35" width="530" x="30" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_team" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Операционная команда: поддержка + операторы сделок" vertex="1">
+          <mxGeometry height="20" width="510" x="40" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_obj_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Объект работы" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_obj" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="Обращения пользователей по статусам сделок; открытые споры; инциденты с выплатами&amp;nbsp;&lt;div&gt;и задержки в цикле «выполнение → приёмка → перевод».&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="510" x="40" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_smart_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="SMART-цели периода (= 1 неделя)" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="1. снизить MTTR по спорам до 24 часов;" vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="2. обеспечить SLA выплат не ниже 98%;" vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="211" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="3. удерживать FRT не выше 15 минут и CSAT не ниже 4,5 из 5;" vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="229" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_s4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="4. снизить долю повторных обращений по теме «статус/выплата» до 8%." vertex="1">
+          <mxGeometry height="18" width="510" x="50" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_kpi_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="KPI" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_kpi" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="MTTR споров; SLA выплат; FRT; CSAT; доля повторных обращений" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_way_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Способ выполнения" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_way" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="Регламент обработки обращений + матрица эскалаций (исполнитель/финансы/разработка)&lt;div&gt;&amp;nbsp;+ шаблоны уведомлений/чек-листы.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="510" x="40" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_res_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;fontStyle=1;" value="Ресурсы:" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_res" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="смены, доступы к статусам сделок/документам/каналам связи" vertex="1">
+          <mxGeometry height="18" width="510" x="40" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="do_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#1E8449;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="340" width="530" x="575" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="do_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#1E8449;" value="Do" vertex="1">
+          <mxGeometry height="35" width="530" x="575" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="do_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Специалист поддержки L1&lt;/b&gt; принимает обращение, фиксирует контекст (ID сделки, статус, описание),&amp;nbsp;&lt;div&gt;классифицирует кейс и направляет в очередь;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="103" as="geometry" />
+        </mxCell>
+        <mxCell id="do_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Руководитель поддержки&lt;/b&gt; контролирует SLA по ответам, распределяет нагрузку и&amp;nbsp;&lt;div&gt;приоритизирует кейсы «вне SLA»;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="do_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Арбитр&lt;/b&gt; запрашивает доказательства у обеих сторон, изучает условия задания и переписку,&amp;nbsp;&lt;div&gt;выносит решение по спору;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="do_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Руководитель back-office&lt;/b&gt; контролирует очередь исключений, назначает ответственных,&amp;nbsp;&lt;div&gt;эскалирует в финансы или разработку по регламенту;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="do_5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Оператор&lt;/b&gt; по решению арбитра инициирует выплату или возврат через финансовый блок;" vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="do_6" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Специалист поддержки&lt;/b&gt; уведомляет обе стороны об итоге и закрывает обращение." vertex="1">
+          <mxGeometry height="35" width="510" x="585" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="act_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="330" width="530" x="30" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="act_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#B7950B;" value="Act" vertex="1">
+          <mxGeometry height="35" width="530" x="30" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="act_sys_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Систематические улучшения:&lt;/b&gt; обновление регламента по типовым спорам,&amp;nbsp;&lt;div&gt;корректировка правил эскалации и приоритетов очередей, обучение по типовым кейсам,&amp;nbsp;&lt;/div&gt;&lt;div&gt;уточнение критериев приёмки работ;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="510" x="40" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="act_adhoc_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Ad hoc (если KPI ухудшаются):&lt;/b&gt; усиление смены арбитров, выделение отдельной приоритетной очереди,&amp;nbsp;&lt;div&gt;временный ручной сценарий выплат, срочное уведомление пользователей о задержках,&amp;nbsp;&lt;/div&gt;&lt;div&gt;эскалация системных проблем в разработку или финансы;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="510" x="40" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="act_ctrl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Контроль эффекта:&lt;/b&gt; аналитический отчёт «до/после» по KPI,&amp;nbsp;&lt;div&gt;срок проверки эффекта — через 1 неделю, закрепление изменений как стандарта&amp;nbsp;&lt;/div&gt;&lt;div&gt;или откат и перепланирование.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="510" x="40" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5EEF8;strokeColor=#7D3C98;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="330" width="530" x="575" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_hdr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Times New Roman;fontSize=20;fontStyle=1;fontColor=#6C3483;" value="Check" vertex="1">
+          <mxGeometry height="35" width="530" x="575" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Ежедневно контролируются KPI:&lt;/b&gt; MTTR по спорам, SLA выплат, FRT, CSAT, доля повторных обращений;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Проводится выборочная проверка кейсов:&lt;/b&gt; корректность решения арбитра,&amp;nbsp;&lt;div&gt;наличие обоснования, качество уведомлений обеих сторон;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="425" x="585" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Анализируются «топ-причины» споров:&lt;/b&gt; задержки исполнителей, несоответствие результата,&amp;nbsp;&lt;div&gt;проблемы с выплатами; фиксируются повторяющиеся сценарии и узкие места;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="510" x="585" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="chk_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Times New Roman;fontSize=11;" value="&lt;b&gt;Собирается обратная связь&lt;/b&gt; от пользователей (оценки/жалобы) и от команды&lt;div&gt;&amp;nbsp;(что мешает, где не хватает инструментов/инструкций).&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="510" x="585" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_pd" edge="1" parent="1" source="plan_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="do_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_dc" edge="1" parent="1" source="do_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="chk_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_ca" edge="1" parent="1" source="chk_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="act_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_ap" edge="1" parent="1" source="act_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#555555;strokeWidth=2;endArrow=block;endFill=1;" target="plan_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
